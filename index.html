@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Exercise</title>
+
 
 <style>
   body {
@@ -11,86 +10,87 @@
     margin: 0;
   }
 
-  /* 🔥 灰色預覽區（會固定） */
+  /* 灰色預覽區 */
   .title {
-    position: sticky;   /* 🔥 滑動時固定 */
+    position: sticky;
     top: 0;
-	font-color:#707070;
     background: #f6f6f6;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-bottom: 1px solid #ddd;
-
     margin-bottom: 10px;
-
     z-index: 100;
-    color:#707070;/* 🔥 避免被蓋住 */
+    color:#707070;
+    width:496px;
+    margin: 0 auto 10px auto;
+    
   }
 
-  /* 🔥 讓按鈕定位用 */
-  .title-box {
-    position: relative;
-  }
+  .title-box { position: relative; }
 
   .container {
     width: 420px;
     margin: auto;
   }
 
-  img {
-   width: 450px;
-  height: 240px;
-    display: block;
-    align-items: center;
+  .image-box {
+    background-color: #FFC78E;
+    padding: 0px 50px ; /* 內距：控制橘色區域與圖片的距離 */ 
+    margin-top: 10px;   /* 外距：橘色區塊與上方灰色標題的距離 */
   }
 
-  /* 🔥 按鈕放在灰色框右上角 */
+  img {
+    width: 100%; /* 讓圖片寬度自適應容器 */
+    height: auto;
+    display: block;
+  }
+
   .btn {
     position: absolute;
     top: 8px;
-    right: 20px; /* 跟 padding 對齊 */
-
-    height: 22px;
-    padding: 0 10px;
+    right: 22px; 
+    height: 24px;
+    padding: 0 18px;
     border-radius: 8px;
     border: 1px solid #ccc;
     background: #fff;
-    font-size: 13px;
+    font-size: 12px;
     cursor: pointer;
   }
 
+  /* 🔥 詳細資料區：每一行都有底框 */
   .info {
     display: none;
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid #ddd;
-    font-size: 13px;
-    line-height: 1.6;
-    color:#2f2f2f;
+    margin-top: 10px; /* 資訊區與圖片底框的距離 */
   }
-.image-box {
-  padding-top:20px;
-  padding-top:26px;
-  background-color: #FFC78E; /* 🔥 橘色背景 */
-  padding: 0 50px;
-}
+
+  .info div {
+    background-color: #A6FFA6; /* 綠色底框 */ /* 綠色邊框 */
+    border-radius: 0px;        /* 圓角 */
+    padding: 0px;        /* 內距：文字在框框內的留白 */
+    margin-bottom: 6px;        /* 外距：每一行之間的間距 */
+    font-size: 13px;
+    color: #707070;
+  }
 </style>
 </head>
 
 <body>
 
-<!-- 🔥 灰色區 + 按鈕 -->
 <div class="title title-box">
   預覽
   <button class="btn" onclick="toggleInfo()">查看資訊</button>
 </div>
 
 <div class="container">
-  <img class="image-box" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvgsQWqNxkQjH5uh3rcibwlS0XjtMWjk3u7w&s">
+  <div class="image-box">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvgsQWqNxkQjH5uh3rcibwlS0XjtMWjk3u7w&s">
+  </div>
 
   <div id="info" class="info">
     <div>修改日期：2026/1/23</div>
     <div>類別：JPG</div>
     <div>大小：466KB</div>
+    <div>路徑：https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvgsQWqNxkQjH5uh3rcibwlS0XjtMWjk3u7w&s</div>
   </div>
 </div>
 
@@ -98,7 +98,6 @@
 function toggleInfo() {
   const info = document.getElementById("info");
   const btn = document.querySelector(".btn");
-
   if (info.style.display === "block") {
     info.style.display = "none";
     btn.innerText = "查看資訊";
@@ -111,5 +110,3 @@ function toggleInfo() {
 
 </body>
 </html>
-
-
