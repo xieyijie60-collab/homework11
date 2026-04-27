@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Exercise</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    margin: 0;
+  }
+
+  /* 🔥 灰色預覽區（會固定） */
+  .title {
+    position: sticky;   /* 🔥 滑動時固定 */
+    top: 0;
+
+    background: #f6f6f6;
+    padding: 10px 20px;
+    border-bottom: 1px solid #ddd;
+
+    margin: 0 -20px 10px -20px;
+
+    z-index: 100; /* 🔥 避免被蓋住 */
+  }
+
+  /* 🔥 讓按鈕定位用 */
+  .title-box {
+    position: relative;
+  }
+
+  .container {
+    width: 420px;
+    margin: auto;
+  }
+
+  img {
+   width: 450px;
+  height: 240px;
+    display: block;
+  }
+
+  /* 🔥 按鈕放在灰色框右上角 */
+  .btn {
+    position: absolute;
+    top: 8px;
+    right: 20px; /* 跟 padding 對齊 */
+
+    height: 22px;
+    padding: 0 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  .info {
+    display: none;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+</style>
+</head>
+
+<body>
+
+<!-- 🔥 灰色區 + 按鈕 -->
+<div class="title title-box">
+  預覽
+  <button class="btn" onclick="toggleInfo()">查看資訊</button>
+</div>
+
+<div class="container">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvgsQWqNxkQjH5uh3rcibwlS0XjtMWjk3u7w&s">
+
+  <div id="info" class="info">
+    <div>修改日期：2026/1/23</div>
+    <div>類別：JPG</div>
+    <div>大小：466KB</div>
+  </div>
+</div>
+
+<script>
+function toggleInfo() {
+  const info = document.getElementById("info");
+  const btn = document.querySelector(".btn");
+
+  if (info.style.display === "block") {
+    info.style.display = "none";
+    btn.innerText = "查看資訊";
+  } else {
+    info.style.display = "block";
+    btn.innerText = "收起資訊";
+  }
+}
+</script>
+
+</body>
+</html>
+
+
